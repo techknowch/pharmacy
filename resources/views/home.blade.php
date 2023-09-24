@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
             <div class="page-content">
@@ -8,12 +8,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Widgets</h4>
+                                <h4 class="mb-sm-0">Dashboard</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Velzon</a></li>
-                                        <li class="breadcrumb-item active">Widgets</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Pharma</a></li>
+                                        <li class="breadcrumb-item active">Dashboard</li>
                                     </ol>
                                 </div>
 
@@ -24,7 +24,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <h5 class="text-decoration-underline mb-3 pb-1">Tile Boxs</h5>
+                            <h5 class="text-decoration-underline mb-3 pb-1">Analytics</h5>
                         </div>
                     </div>
                     <!-- end row-->
@@ -36,7 +36,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">Total Earnings</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">Total Categories</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <h5 class="text-success fs-14 mb-0">
@@ -46,12 +46,12 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="559.25">0</span>k</h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="559.25">0</span>k</h4>
                                             <a href="#" class="text-decoration-underline">View net earnings</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-soft-success rounded fs-3">
-                                                <i class="bx bx-dollar-circle text-success"></i>
+                                                <i class="bx bx-cube text-success"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted mb-0">My Balance</p>
+                                            <p class="text-uppercase fw-medium text-muted mb-0">Products</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <h5 class="text-muted fs-14 mb-0">
@@ -133,12 +133,12 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="165.89">0</span>k</h4>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="165.89">0</span>k</h4>
                                             <a href="#" class="text-decoration-underline">Withdraw money</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-soft-primary rounded fs-3">
-                                                <i class="bx bx-wallet text-primary"></i>
+                                                <i class=" bx bx-pie-chart-alt text-primary"></i>
                                             </span>
                                         </div>
                                     </div>
