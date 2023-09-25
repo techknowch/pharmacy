@@ -59,10 +59,17 @@ class CategoryController extends Controller
     }
 
     // Remove the specified category from the database.
-    public function destroy(Category $category)
+    public function destroy($id)
     {
+        // Find and delete the record
+        $category = Category::find($id);
+        if (!$category) {
+            return response()->json(['success' => false, 'message' => 'Category not found'], 404);
+        }
+
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        // Return a success response
+        return response()->json(['success' => true, 'message' => 'Category deleted successfully']);
     }
 }
