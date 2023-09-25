@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::resource('customers', CustomerController::class);
     Route::resource('suppliers', SupplierController::class);
     Route::resource('invoices', InvoiceController::class);
+    Route::resource('categories', CategoryController::class);
 });
 
-    Auth::routes();
+Auth::routes();

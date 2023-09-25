@@ -982,7 +982,7 @@
                             <div class="collapse menu-dropdown" id="sidebarCategory">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="pages-starter.html" class="nav-link" data-key="t-starter"> Starter </a>
+                                        <a href="{{ route('categories.index') }}" class="nav-link" data-key="t-starter"> View </a>
                                     </li>
                                 </ul>
                             </div>
