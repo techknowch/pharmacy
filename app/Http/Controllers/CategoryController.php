@@ -25,12 +25,12 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'description' => 'nullable|string',
+            'status' => 'nullable|string',
         ]);
 
         Category::create($request->all());
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        return redirect()->route('categories.create')->with('success', 'Category created successfully.');
     }
 
     // Display the specified category.

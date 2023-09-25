@@ -25,7 +25,7 @@
                 <div class="card">
                     <div class="card-header align-items-center d-flex">
                         <h4 class="card-title mb-0 flex-grow-1">Table</h4>
-                        <a href="#" class="btn btn-success" id="addproduct-btn"><i class="ri-add-line align-bottom me-1"></i> Add Category</a>
+                        <a href="{{ route('categories.create') }}" class="btn btn-success" id="addproduct-btn"><i class="ri-add-line align-bottom me-1"></i> Add Category</a>
                     </div><!-- end card header -->
 
                     <div class="card-body">
