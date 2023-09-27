@@ -28,6 +28,13 @@ class CategoryController extends Controller
             'status' => 'nullable|string',
         ]);
 
+        $existingCategory = Category::where('name', $request->input('name'))->first();
+
+        if ($existingCategory) {
+            // Return an error message
+            return redirect()->route('categories.create')->with('error', 'Category already exists.');
+        }
+
         Category::create($request->all());
 
         return redirect()->route('categories.create')->with('success', 'Category created successfully.');

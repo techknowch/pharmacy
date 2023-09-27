@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MedicineGenericController;
+use App\Http\Controllers;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +30,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::resource('suppliers', SupplierController::class);
     Route::resource('invoices', InvoiceController::class);
     Route::resource('categories', CategoryController::class);
+    Route::resource('medicine-generics', MedicineGenericController::class);
 });
 
 Auth::routes();

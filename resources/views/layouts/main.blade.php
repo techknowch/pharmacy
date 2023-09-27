@@ -733,7 +733,7 @@
     <div class="dropdown ms-sm-3 header-item topbar-user">
         <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="d-flex align-items-center">
-                <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
+                <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/avatar-3.jpg') }}" alt="Header Avatar">
                 <span class="text-start ms-xl-2">
                     <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna
                         Adame</span>
@@ -840,7 +840,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#userManagement" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="userManagement">
-                            <i class="ri-pages-line"></i> <span data-key="t-pages">User Management</span>
+                            <i class="ri-shield-user-line"></i> <span data-key="t-pages">User Management</span>
                         </a>
                         <div class="collapse menu-dropdown" id="userManagement">
                             <ul class="nav nav-sm flex-column">
@@ -852,7 +852,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarCategory" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCategory">
-                            <i class="ri-pages-line"></i> <span data-key="t-pages">Category</span>
+                            <i class=" ri-layout-masonry-fill"></i> <span data-key="t-pages">Category</span>
                         </a>
                         <div class="collapse menu-dropdown" id="sidebarCategory">
                             <ul class="nav nav-sm flex-column">
@@ -864,24 +864,24 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#medicineGeneric" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="medicineGeneric">
-                            <i class="ri-pages-line"></i> <span data-key="t-pages">Medicine Generic</span>
+                            <i class="ri-medium-line"></i> <span data-key="t-pages">Medicine Generic</span>
                         </a>
                         <div class="collapse menu-dropdown" id="medicineGeneric">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="pages-starter.html" class="nav-link" data-key="t-starter"> Starter </a>
+                                    <a href="{{ route('medicine-generics.index') }}" class="nav-link" data-key="t-starter"> View </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#medicineSupplier" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="medicineSupplier">
-                            <i class="ri-pages-line"></i> <span data-key="t-pages">Medicine Supplier</span>
+                            <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-pages">Medicine Supplier</span>
                         </a>
                         <div class="collapse menu-dropdown" id="medicineSupplier">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="pages-starter.html" class="nav-link" data-key="t-starter"> Starter </a>
+                                    <a href="{{ route('suppliers.index') }}" class="nav-link" data-key="t-starter"> View </a>
                                 </li>
                             </ul>
                         </div>
