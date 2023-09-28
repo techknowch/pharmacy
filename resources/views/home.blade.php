@@ -147,8 +147,31 @@
                         </div><!-- end col -->
                     </div> <!-- end row-->
 
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Line Chart</h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="lineChart" class="chartjs-chart" data-colors='["--vz-primary-rgb, 0.2", "--vz-primary", "--vz-success-rgb, 0.2", "--vz-success"]'></canvas>
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+
                 </div>
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
+@endsection
+
+@section('scripts')
+
+<!-- Chart JS -->
+<script src="{{ asset('assets/libs/chart.js/chart.min.js') }}"></script>
+
+<!-- chartjs init -->
+<script src="{{ asset('assets/js/pages/chartjs.init.js') }}"></script>
+
 @endsection

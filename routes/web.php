@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MedicineGenericController;
 use App\Http\Controllers;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 

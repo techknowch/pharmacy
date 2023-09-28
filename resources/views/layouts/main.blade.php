@@ -888,12 +888,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#medicine" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="medicine">
-                            <i class="ri-pages-line"></i> <span data-key="t-pages">Medicine</span>
+                            <i class="ri-building-4-line"></i> <span data-key="t-pages">Medicine</span>
                         </a>
                         <div class="collapse menu-dropdown" id="medicine">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="pages-starter.html" class="nav-link" data-key="t-starter"> Starter </a>
+                                    <a href="{{ route('medicines.index') }}" class="nav-link" data-key="t-starter"> View </a>
                                 </li>
                             </ul>
                         </div>
