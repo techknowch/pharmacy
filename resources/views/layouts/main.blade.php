@@ -905,7 +905,7 @@
                         <div class="collapse menu-dropdown" id="medicineOrder">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="pages-starter.html" class="nav-link" data-key="t-starter"> Starter </a>
+                                    <a href="{{ route('orders.index') }}" class="nav-link" data-key="t-starter"> View </a>
                                 </li>
                             </ul>
                         </div>

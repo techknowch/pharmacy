@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2023 at 11:46 AM
+-- Generation Time: Sep 28, 2023 at 11:01 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.1.2-1ubuntu2.14
 
@@ -92,8 +92,19 @@ CREATE TABLE `invoices` (
 CREATE TABLE `medicines` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `generic_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `purchase_price` decimal(10,2) NOT NULL,
+  `selling_price` decimal(10,2) NOT NULL,
+  `total_items` int NOT NULL,
+  `status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `boxes_qty` int NOT NULL DEFAULT '0',
+  `supplier_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `expiry_date` date DEFAULT NULL,
+  `category` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -139,12 +150,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2014_10_12_100000_create_password_resets_table', 1),
 (4, '2019_08_19_000000_create_failed_jobs_table', 1),
 (5, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(6, '2023_09_18_112608_create_medicines_table', 1),
 (7, '2023_09_18_112609_create_customers_table', 1),
 (9, '2023_09_18_112613_create_invoices_table', 1),
 (10, '2023_09_25_043240_create_categories_table', 2),
 (11, '2023_09_26_151714_create_medicine_generics_table', 3),
-(12, '2023_09_18_112610_create_suppliers_table', 4);
+(12, '2023_09_18_112610_create_suppliers_table', 4),
+(13, '2023_09_18_112608_create_medicines_table', 5),
+(14, '2023_09_28_050539_add_columns_to_medicines_table', 6);
 
 -- --------------------------------------------------------
 
@@ -350,7 +362,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT for table `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `medicine_generics`
@@ -362,7 +374,7 @@ ALTER TABLE `medicine_generics`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
