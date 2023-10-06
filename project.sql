@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2023 at 11:01 AM
+-- Generation Time: Sep 28, 2023 at 12:59 PM
 -- Server version: 8.1.0
 -- PHP Version: 8.1.2-1ubuntu2.14
 
@@ -107,6 +107,14 @@ CREATE TABLE `medicines` (
   `category` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `medicines`
+--
+
+INSERT INTO `medicines` (`id`, `name`, `image`, `generic_name`, `purchase_price`, `selling_price`, `total_items`, `status`, `created_at`, `updated_at`, `boxes_qty`, `supplier_name`, `description`, `expiry_date`, `category`) VALUES
+(7, 'Arinac', '1695883573.png', 'active', 12.00, 15.00, 80, 'active', '2023-09-28 01:46:13', '2023-09-28 01:46:13', 1, NULL, 'Arinac', '2025-12-28', 'Capsule'),
+(8, 'Panadol', '1695883611.png', 'active', 15.00, 18.00, 25, 'active', '2023-09-28 01:46:51', '2023-09-28 01:46:51', 1, NULL, 'Panadol', '2029-09-25', 'Syrup');
+
 -- --------------------------------------------------------
 
 --
@@ -127,6 +135,34 @@ CREATE TABLE `medicine_generics` (
 
 INSERT INTO `medicine_generics` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
 (2, 'Cofsils Cough Syrup', 'publish', '2023-09-27 00:47:34', '2023-09-27 00:47:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medicine_orders`
+--
+
+CREATE TABLE `medicine_orders` (
+  `id` bigint UNSIGNED NOT NULL,
+  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_price` decimal(10,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `medicine_orders`
+--
+
+INSERT INTO `medicine_orders` (`id`, `customer_name`, `customer_address`, `phone`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 'Ali', 'KHV', '92', 25.00, '2023-09-28 02:39:33', '2023-09-28 02:39:33'),
+(2, 'Ali', 'KHV', '92', 1.00, '2023-09-28 02:40:15', '2023-09-28 02:40:15'),
+(3, 'Ali', 'KHV', '92', 1.00, '2023-09-28 02:42:44', '2023-09-28 02:42:44'),
+(4, 'Ali', 'KHV', '92', 1.00, '2023-09-28 02:43:09', '2023-09-28 02:43:09'),
+(5, 'Ali', 'Ali', '1', 1.00, '2023-09-28 02:43:51', '2023-09-28 02:43:51'),
+(6, 'Tahir', 'KHV', '92', 5.00, '2023-09-28 02:44:36', '2023-09-28 02:44:36');
 
 -- --------------------------------------------------------
 
@@ -156,7 +192,24 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2023_09_26_151714_create_medicine_generics_table', 3),
 (12, '2023_09_18_112610_create_suppliers_table', 4),
 (13, '2023_09_18_112608_create_medicines_table', 5),
-(14, '2023_09_28_050539_add_columns_to_medicines_table', 6);
+(14, '2023_09_28_050539_add_columns_to_medicines_table', 6),
+(15, '2023_09_28_062005_create_medicine_orders_table', 7),
+(16, '2023_09_28_062031_create_order_product_table', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_product`
+--
+
+CREATE TABLE `order_product` (
+  `id` bigint UNSIGNED NOT NULL,
+  `medicine_id` bigint UNSIGNED NOT NULL,
+  `medicine_order_id` bigint UNSIGNED NOT NULL,
+  `quantity` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -291,10 +344,24 @@ ALTER TABLE `medicine_generics`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `medicine_orders`
+--
+ALTER TABLE `medicine_orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_product`
+--
+ALTER TABLE `order_product`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_product_medicine_id_foreign` (`medicine_id`),
+  ADD KEY `order_product_medicine_order_id_foreign` (`medicine_order_id`);
 
 --
 -- Indexes for table `password_resets`
@@ -362,7 +429,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT for table `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `medicine_generics`
@@ -371,10 +438,22 @@ ALTER TABLE `medicine_generics`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `medicine_orders`
+--
+ALTER TABLE `medicine_orders`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `order_product`
+--
+ALTER TABLE `order_product`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -393,6 +472,17 @@ ALTER TABLE `suppliers`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `order_product`
+--
+ALTER TABLE `order_product`
+  ADD CONSTRAINT `order_product_medicine_id_foreign` FOREIGN KEY (`medicine_id`) REFERENCES `medicines` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order_product_medicine_order_id_foreign` FOREIGN KEY (`medicine_order_id`) REFERENCES `medicine_orders` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
